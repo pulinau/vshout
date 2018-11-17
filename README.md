@@ -16,7 +16,7 @@ This project requires the following to be setup,
 These instructions are for a quick setup using XAMPP server
 
 1. Clone the repository into the ```htdocs``` directory
-2. Navigate to the project directory ```cd vshout```
+2. Navigate to the project directory using, ```cd vshout```
 3. Open a command window and run ```composer update```
 4. Update ```httpd-vhosts.conf``` located in ```xampp\apache\conf\extra``` to include the following,
 
