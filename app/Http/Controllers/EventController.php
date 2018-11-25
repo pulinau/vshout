@@ -116,6 +116,11 @@ class EventController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $event = Event::find($id);
+        $event->delete();
+
+        return redirect('/events')->with(
+            'success', 'Event \'' . $event->event_name . '\' has been deleted '
+        );
     }
 }
