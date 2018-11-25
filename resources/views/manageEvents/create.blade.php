@@ -21,7 +21,7 @@
       </div><br />
     @endif
       <form method="post" action="{{ route('events.store') }}">
-        <input type="hidden" value="{{csrf_token()}}" name="_token" />
+        @csrf
         <div class="form-group">
           <label for="event">Event name:</label>
           <input type="text" class="form-control" name="event_name"/>
