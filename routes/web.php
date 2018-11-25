@@ -15,8 +15,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Auth::routes();
+Route::resource('events', 'EventController');
+Route::resource('feedbacks', 'FeedbackController');
 
 Route::get('/home', 'HomeController@index')->name('home');
-Route::resource('feedbacks', 'FeedbackController');
-Route::resource('events', 'EventController');

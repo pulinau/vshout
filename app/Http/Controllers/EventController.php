@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Event;
 use Illuminate\Http\Request;
 
 class EventController extends Controller
@@ -13,7 +14,9 @@ class EventController extends Controller
      */
     public function index()
     {
-        return view('events.index');
+        $events = Event::all();
+
+        return view('manageEvents.index', compact('events'));
     }
 
     /**
@@ -23,7 +26,7 @@ class EventController extends Controller
      */
     public function create()
     {
-        return view('events.create');
+        return view('manageEvents.create');
     }
 
     /**
@@ -34,7 +37,23 @@ class EventController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'event_name' => 'required',
+            'event_date' => 'required',
+            'description' => 'required',
+            'max_volunteers' => 'required|integer',
+        ]);
+
+        $event = new Event([
+            'event_name' => $request->get('event_name'),
+            'event_date' => $request->get('event_date'),
+            'description' => $request->get('description'),
+            'max_volunteers' => $request->get('max_volunteers'),
+            'curr_volunteers' => 0,
+        ]);
+        $event->save();
+
+        return redirect('/events')->with('success', 'Event has been added');
     }
 
     /**
@@ -56,7 +75,9 @@ class EventController extends Controller
      */
     public function edit($id)
     {
-        //
+        $event = Event::find($id);
+
+        return view('manageEvents.edit', compact('event'));
     }
 
     /**
@@ -68,7 +89,23 @@ class EventController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            'event_name' => 'required',
+            'event_date' => 'required',
+            'description' => 'required',
+            'max_volunteers' => 'required|integer',
+        ]);
+
+        $event = Event::find($id);
+        $event->event_name = $request->get('event_name');
+        $event->event_date = $request->get('event_date');
+        $event->description = $request->get('description');
+        $event->max_volunteers = $request->get('max_volunteers');
+        $event->save();
+
+        return redirect('/events')->with(
+            'success', 'Event \'' . $event->event_name . '\' has been updated'
+        );
     }
 
     /**
@@ -79,6 +116,11 @@ class EventController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $event = Event::find($id);
+        $event->delete();
+
+        return redirect('/events')->with(
+            'success', 'Event \'' . $event->event_name . '\' has been deleted '
+        );
     }
 }
