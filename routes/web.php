@@ -16,6 +16,6 @@ Route::get('/', function () {
 });
 
 Route::resource('events', 'EventController');
-Route::resource('feedbacks', 'FeedbackController');
+Route::resource('feedback', 'FeedbackController');
 
 Route::get('/home', 'HomeController@index')->name('home');
