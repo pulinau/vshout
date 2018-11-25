@@ -39,6 +39,7 @@
           <textarea class="form-control" name="description" placeholder="Enter description here..."></textarea>
         </div>
         <button type="submit" class="btn btn-primary">Add</button>
+        <a href="{{ url('/events') }}" class="btn btn-danger">Cancel</a>
       </form>
   </div>
 </div>

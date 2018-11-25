@@ -40,6 +40,7 @@
           <textarea class="form-control" name="description" placeholder="Enter description here...">{{ $event->description }}</textarea>
         </div>
         <button type="submit" class="btn btn-primary">Update</button>
+        <a href="{{ url('/events') }}" class="btn btn-danger">Cancel</a>
       </form>
   </div>
 </div>

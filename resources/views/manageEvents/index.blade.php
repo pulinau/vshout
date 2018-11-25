@@ -45,5 +45,8 @@
         @endforeach
     </tbody>
   </table>
+  <div class="row">
+    <a href="{{ route('events.create') }}" class="btn btn-primary">Add event</a>
+  </div>
 <div>
 @endsection
