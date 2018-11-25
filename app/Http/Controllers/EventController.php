@@ -43,6 +43,7 @@ class EventController extends Controller
             'description' => 'required',
             'max_volunteers' => 'required|integer',
         ]);
+
         $event = new Event([
             'event_name' => $request->get('event_name'),
             'event_date' => $request->get('event_date'),
@@ -51,6 +52,7 @@ class EventController extends Controller
             'curr_volunteers' => 0,
         ]);
         $event->save();
+
         return redirect('/events')->with('success', 'Event has been added');
     }
 
@@ -73,7 +75,9 @@ class EventController extends Controller
      */
     public function edit($id)
     {
-        //
+        $event = Event::find($id);
+
+        return view('manageEvents.edit', compact('event'));
     }
 
     /**
@@ -85,7 +89,23 @@ class EventController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            'event_name' => 'required',
+            'event_date' => 'required',
+            'description' => 'required',
+            'max_volunteers' => 'required|integer',
+        ]);
+
+        $event = Event::find($id);
+        $event->event_name = $request->get('event_name');
+        $event->event_date = $request->get('event_date');
+        $event->description = $request->get('description');
+        $event->max_volunteers = $request->get('max_volunteers');
+        $event->save();
+
+        return redirect('/events')->with(
+            'success', 'Event \'' . $event->event_name . '\' has been updated'
+        );
     }
 
     /**
