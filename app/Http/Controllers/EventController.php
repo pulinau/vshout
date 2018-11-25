@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Event;
 use Illuminate\Http\Request;
 
 class EventController extends Controller
@@ -23,7 +24,7 @@ class EventController extends Controller
      */
     public function create()
     {
-        //
+        return view('manageEvents.create');
     }
 
     /**
@@ -34,7 +35,21 @@ class EventController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'event_name' => 'required',
+            'event_date' => 'required',
+            'description' => 'required',
+            'max_volunteers' => 'required|integer',
+        ]);
+        $event = new Event([
+            'event_name' => $request->get('event_name'),
+            'event_date' => $request->get('event_date'),
+            'description' => $request->get('description'),
+            'max_volunteers' => $request->get('max_volunteers'),
+            'curr_volunteers' => 0,
+        ]);
+        $event->save();
+        return redirect('/events')->with('success', 'Event has been added');
     }
 
     /**

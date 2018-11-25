@@ -10,6 +10,7 @@ class Event extends Model
         'event_name',
         'event_date',
         'description',
-        'max_volunteers'
+        'max_volunteers',
+        'curr_volunteers'
     ];
 }
