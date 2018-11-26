@@ -24,3 +24,5 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/host', 'HostController@index')->name('host.index');
 
 Route::get('/volunteer', 'VolunteerController@index')->name('volunteer.index');
+
+Route::post('/reviews/{host}/create', 'ReviewController@create');
