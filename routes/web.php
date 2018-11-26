@@ -20,4 +20,9 @@ Route::resource('feedback', 'FeedbackController');
 
 Auth::routes();
 
+<<<<<<< HEAD
+=======
+// Route::get('/home', 'HomeController@index')->name('home');
+
+>>>>>>> 6530b63f716621495578b9b96ec4c4ee3c30c92f
 Route::get('/home', 'HomeController@index')->name('home');
