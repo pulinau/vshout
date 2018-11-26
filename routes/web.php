@@ -26,3 +26,5 @@ Route::get('/host', 'HostController@index')->name('host.index');
 Route::get('/volunteer', 'VolunteerController@index')->name('volunteer.index');
 
 Route::post('/reviews/{host}/create', 'ReviewController@create');
+Route::put('/reviews/{review}', 'ReviewController@edit');
+Route::delete('/reviews/{review}', 'ReviewController@destroy');
