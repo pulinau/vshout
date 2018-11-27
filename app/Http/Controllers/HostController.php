@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Event;
 
 class HostController extends Controller
 {
@@ -10,7 +11,7 @@ class HostController extends Controller
     {
         $this->middleware(['auth','host']);
     }
-    
+
     public function index()
     {
         return view('host.index');
