@@ -22,7 +22,7 @@
             </ul>
         </li>
         <li class="dropdown">
-            <a href="/events">Event</a>
+            <a href="/events">Events</a>
             <ul class="submenu">
                 <li><a href="/events">Single Event</a></li>
             </ul>
@@ -45,12 +45,32 @@
                 <li><a href="contact-2.html">Contact Style Two</a></li>
             </ul>
         </li>
+        @guest
         <li class="dropdown">
             <a href="/login">Login</a>
         </li>
         <li class="dropdown">
             <a href="/register">Register</a>
         </li>
+        @else
+        <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" v-pre>
+                {{ Auth::user()->name }} <span class="caret"></span>
+            </a>
+            <ul class="dropdown-menu">
+                <li>
+                    <a href="{{ route('logout') }}"
+                        onclick="event.preventDefault();
+                        document.getElementById('logout-form').submit();">
+                        Logout
+                    </a>
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                        {{ csrf_field() }}
+                    </form>
+                </li>
+            </ul>
+        </li>
+        @endguest
     </ul>
 </div>
 </nav>

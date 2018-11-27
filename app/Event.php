@@ -17,6 +17,16 @@ class Event extends Model
 
     public function feedbacks()
     {
-      return $this->hasMany('App\Feedback');
+        return $this->hasMany('App\Feedback');
+    }
+
+    public function volunteers()
+    {
+        return $this->belongsToMany('App\Volunteer');
+    }
+
+    public function host()
+    {
+        return $this->belongsTo('App\Host', 'hosts_events', 'id', 'event_id');
     }
 }

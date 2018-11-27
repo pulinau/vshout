@@ -26,6 +26,7 @@ Route::get('/homepage', function () {
 
 Route::resource('feedbacks', 'FeedbackController');
 Route::resource('events', 'EventController');
+Route::get('/events/{event}/join', 'VolunteerController@join')->name('event.join');
 
 // Route::get('/feedbacks','FeedbackController@index')
 Route::get('/‍feedbacks/{event_id}/', 'FeedbackController@create')->name('feedbacks.create');
