@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
 
-    <title>Volunteering Platform</title>
+    <title>VShout</title>
 
     <link href="/css/bootstrap.css" rel="stylesheet">
     <link href="/css/sliderevolution.css" rel="stylesheet">
