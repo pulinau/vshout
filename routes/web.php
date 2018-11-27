@@ -15,16 +15,24 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Auth::routes();
+Route::get('/home', 'HomeController@index')->name('home');
+Route::resource('feedbacks', 'FeedbackController');
 Route::resource('events', 'EventController');
+
+// Route::get('/feedbacks','FeedbackController@index')
+ Route::get('/‍feedbacks/{event_id}/', 'FeedbackController@create')->name('feedbacks.create');
+ Route::post('/feedbacks/{event_id}/', 'FeedbackController@store')->name('feedbacks.store');
+Route::get('/home', 'HomeController@index')->name('home');
 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
+Route::get('/homepage', function () {
+    return view('homepage');
+});
+
 Route::get('/host', 'HostController@index')->name('host.index');
 
 Route::get('/volunteer', 'VolunteerController@index')->name('volunteer.index');
-
-Route::post('/reviews/{host}/create', 'ReviewController@create');
-Route::put('/reviews/{review}', 'ReviewController@edit');
-Route::delete('/reviews/{review}', 'ReviewController@destroy');

@@ -3,10 +3,21 @@
 namespace App\Http\Controllers;
 
 use App\Event;
+use App\User;
 use Illuminate\Http\Request;
 
 class EventController extends Controller
 {
+    /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware(['auth','host']);
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -50,6 +61,7 @@ class EventController extends Controller
             'description' => $request->get('description'),
             'max_volunteers' => $request->get('max_volunteers'),
             'curr_volunteers' => 0,
+            'host_id' => auth()->user()->id,
         ]);
         $event->save();
 
@@ -64,7 +76,10 @@ class EventController extends Controller
      */
     public function show($id)
     {
-        //
+        $event = Event::find($id);
+        $feedbacks = $event->feedbacks;
+
+        return view('manageEvents.view')->withEvent($event)->withFeedback($feedbacks);
     }
 
     /**

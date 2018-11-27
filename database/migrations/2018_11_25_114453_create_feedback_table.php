@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateEventsTable extends Migration
+class CreateFeedbackTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,19 +13,17 @@ class CreateEventsTable extends Migration
      */
     public function up()
     {
-        Schema::create('events', function (Blueprint $table) {
+        Schema::create('feedback', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('event_name');
-            $table->date('event_date');
+            $table->string('name');
+            $table->string('email');
             $table->text('description');
-            $table->integer('max_volunteers');
-            $table->integer('curr_volunteers');
-            $table->integer('host_id')->unsigned();
+            $table->integer('event_id')->unsigned();
             $table->timestamps();
 
-            $table->foreign('host_id')
+            $table->foreign('event_id')
               ->references('id')
-              ->on('users')
+              ->on('events')
               ->onDelete('cascade');
         });
     }
@@ -37,6 +35,6 @@ class CreateEventsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('events');
+        Schema::dropIfExists('feedback');
     }
 }
