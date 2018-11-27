@@ -16,7 +16,6 @@ Route::get('/', function () {
 });
 
 Auth::routes();
-
 Route::get('/home', 'HomeController@index')->name('home');
 Route::resource('feedbacks', 'FeedbackController');
 Route::resource('events', 'EventController');
@@ -25,3 +24,11 @@ Route::resource('events', 'EventController');
  Route::get('/‍feedbacks/{event_id}/','FeedbackController@create')->name('feedbacks.create');
  Route::post('/feedbacks/{event_id}/','FeedbackController@store')->name('feedbacks.store');
 Route::get('/home', 'HomeController@index')->name('home');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/host', 'HostController@index')->name('host.index');
+
+Route::get('/volunteer', 'VolunteerController@index')->name('volunteer.index');
