@@ -34,3 +34,7 @@ Route::post('/feedbacks/{event_id}/', 'FeedbackController@store')->name('feedbac
 Route::get('/host', 'HostController@index')->name('host.index');
 
 Route::get('/volunteer', 'VolunteerController@index')->name('volunteer.index');
+
+// Donation portal
+Route::get('/events/{event_id}/donate', 'DonationController@index');
+Route::post('/charge/{event_id}', 'CheckoutController@charge');
