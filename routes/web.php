@@ -26,3 +26,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/homepage', function () {
     return view('homepage');
 });
+
+Route::get('/notifications', function () {
+    return view('notifications');
+});
