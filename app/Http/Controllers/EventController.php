@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Event;
+use App\User;
 use Illuminate\Http\Request;
 
 class EventController extends Controller
@@ -60,6 +61,7 @@ class EventController extends Controller
             'description' => $request->get('description'),
             'max_volunteers' => $request->get('max_volunteers'),
             'curr_volunteers' => 0,
+            'host_id' => auth()->user()->id,
         ]);
         $event->save();
 

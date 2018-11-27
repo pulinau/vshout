@@ -11,7 +11,8 @@ class Event extends Model
         'event_date',
         'description',
         'max_volunteers',
-        'curr_volunteers'
+        'curr_volunteers',
+        'host_id'
     ];
 
     public function feedbacks()

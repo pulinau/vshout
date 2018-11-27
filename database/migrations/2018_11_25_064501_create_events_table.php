@@ -20,7 +20,13 @@ class CreateEventsTable extends Migration
             $table->text('description');
             $table->integer('max_volunteers');
             $table->integer('curr_volunteers');
+            $table->integer('host_id')->unsigned();
             $table->timestamps();
+
+            $table->foreign('host_id')
+              ->references('id')
+              ->on('users')
+              ->onDelete('cascade');
         });
     }
 
