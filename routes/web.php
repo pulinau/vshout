@@ -20,3 +20,7 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 Route::resource('feedbacks', 'FeedbackController');
 Route::resource('events', 'EventController');
+
+// Route::get('/feedbacks','FeedbackController@index')
+ Route::get('/‍feedbacks/{event_id}/','FeedbackController@create')->name('feedbacks.create');
+ Route::post('/feedbacks/{event_id}/','FeedbackController@store')->name('feedbacks.store');

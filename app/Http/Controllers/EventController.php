@@ -64,7 +64,10 @@ class EventController extends Controller
      */
     public function show($id)
     {
-        //
+        $event = Event::find($id);
+        $feedbacks = $event->feedbacks;
+
+        return view('manageEvents.view')->withEvent($event)->withFeedback($feedbacks);
     }
 
     /**

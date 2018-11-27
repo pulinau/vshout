@@ -13,4 +13,9 @@ class Event extends Model
         'max_volunteers',
         'curr_volunteers'
     ];
+
+    public function feedbacks()
+    {
+      return $this->hasMany('App\Feedback');
+    }
 }

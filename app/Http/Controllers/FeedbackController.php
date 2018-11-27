@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Event;
+use App\Feedback;
 
 class FeedbackController extends Controller
 {
@@ -21,9 +23,10 @@ class FeedbackController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create($event_id)
     {
-        return view('feedbacks.create');
+        $event = Event::find($event_id);
+        return view('feedbacks.create')->withEvent($event);
     }
 
     /**
@@ -32,9 +35,19 @@ class FeedbackController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, $event_id)
     {
-        //
+        $event = Event::find($event_id);
+
+        $feedback = new Feedback();
+        $feedback->name = $request->Input('name');
+        $feedback->email = $request->Input('email');
+        $feedback->description = $request->Input('description');
+        $feedback->event()->associate($event);
+
+        $feedback->save();
+
+        return redirect()->route('events.show',[$event->id]);
     }
 
     /**
