@@ -39,10 +39,14 @@
             <td>{{$event->max_volunteers}}</td>
             <td>{{$event->curr_volunteers}}</td>
             <td>
-                <form action="/events/{{ $event->id }}/register" method="post">
+                <form action="{{ route('events.register',$event->id) }}" method="post">
                   @csrf
                     <button class="btn btn-success" type="submit">Register</button>
                 </form>
+            </td>
+            <td>
+                <a href="{{ route('events.donate',$event->id) }}" class="btn btn-warning" type="submit">Donate</a>
+
             </td>
         </tr>
         @endforeach

@@ -5,8 +5,15 @@
         <div class="col-lg-9">
 
           <div class="card mt-4">
-            <img class="card-img-top img-fluid" src="http://placehold.it/900x400" alt="">
+            <div class="card-head">
+              <img class="card-img-top img-fluid" src="http://placehold.it/900x400" alt="">
+            </div>
             <div class="card-body">
+            @if(session()->get('success'))
+              <div class="alert alert-success">
+                {{ session()->get('success') }}
+              </div><br />
+            @endif
               <h3 class="card-title">{{$event->event_name}}</h3>
               <h4>Max Volunteers : {{$event->max_volunteers}}</h4>
               <h4>Registered Volunteers : {{$event->curr_volunteers}}</h4>

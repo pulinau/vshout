@@ -25,13 +25,24 @@ Route::get('/homepage', function () {
 });
 
 Route::resource('feedbacks', 'FeedbackController');
-Route::resource('events', 'EventController');
+
 
 Route::group(['middleware'=>'App\Http\Middleware\Volunteer'], function()
 {
     Route::get('browse', 'BrowseEventController@index');
-    Route::post('events/{event_id}/register',  'BrowseEventController@register');
+    Route::post('events/{event_id}/register',  'BrowseEventController@register')->name('events.register');
 });
+
+Route::group(['middleware'=>'App\Http\Middleware\Host'], function()
+{
+    Route::resource('events', 'EventController', ['except'=> [
+        'show'
+    ]]);
+});
+
+Route::resource('events', 'EventController', ['only'=> [
+    'show'
+]]);
 
 // Route::get('/feedbacks','FeedbackController@index')
 Route::get('/‍feedbacks/{event_id}/', 'FeedbackController@create')->name('feedbacks.create');
@@ -40,3 +51,7 @@ Route::post('/feedbacks/{event_id}/', 'FeedbackController@store')->name('feedbac
 Route::get('/host', 'HostController@index')->name('host.index');
 
 Route::get('/volunteer', 'VolunteerController@index')->name('volunteer.index');
+
+// Donation portal
+Route::get('/events/{event_id}/donate', 'DonationController@index')->name('events.donate');
+Route::post('/charge/{event_id}', 'CheckoutController@charge')->name('charge');
