@@ -27,6 +27,12 @@ Route::get('/homepage', function () {
 Route::resource('feedbacks', 'FeedbackController');
 Route::resource('events', 'EventController');
 
+Route::group(['middleware'=>'App\Http\Middleware\Volunteer'], function()
+{
+    Route::get('browse', 'BrowseEventController@index');
+    Route::post('events/{event_id}/register',  'BrowseEventController@register');
+});
+
 // Route::get('/feedbacks','FeedbackController@index')
 Route::get('/‍feedbacks/{event_id}/', 'FeedbackController@create')->name('feedbacks.create');
 Route::post('/feedbacks/{event_id}/', 'FeedbackController@store')->name('feedbacks.store');
