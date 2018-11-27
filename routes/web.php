@@ -19,10 +19,13 @@ Route::resource('events', 'EventController');
 
 Auth::routes();
 
-// Route::get('/home', 'HomeController@index')->name('home');
-
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/homepage', function () {
     return view('homepage');
 });
+
+Route::get('/host', 'HostController@index')->name('host.index');
+
+Route::get('/volunteer', 'VolunteerController@index')->name('volunteer.index');
+
