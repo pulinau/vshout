@@ -12,7 +12,7 @@
                 <div class="column-inner">
                 	<h3>{{ $event->event_name }}</h3>
                     <div class="text">{{ $event->description }}</div>
-                    <div class="text-right link"><a href="{{ route('event.join', $event->id) }}" class="theme-btn btn-style-one">Join Now</a></div>
+                    <div class="text-right link"><a href="{{ route('events.register', $event->id) }}" class="theme-btn btn-style-one">Join Now</a></div>
                 </div>
             </article>
             @endforeach

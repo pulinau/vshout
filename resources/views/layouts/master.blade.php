@@ -26,7 +26,7 @@
 
     @include('layouts.header')
 
-    <div style="margin-top:70px;">
+    <div style="margin-top:70px;margin-bottom:2em;" class="container">
         @yield('content')
     </div>
     

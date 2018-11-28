@@ -80,9 +80,7 @@
                     <p class="card-text">{{substr($event->description,0,100)}}</p>
                     <div class="d-flex justify-content-between align-items-center">
                       <div class="btn-group">
-                        <button type="button" href="{{ route('events.show',$event->id)}}" class="btn btn-primary btn-sm btn-outline-secondary">View</button>
-                        <!-- Button for enrolling volunteers -->
-                        <button type="button" class="btn btn-primary btn-sm btn-outline-secondary">Join Event</button>
+                        <a href="{{ route('events.show',$event->id)}}" class="btn btn-primary btn-sm btn-outline-secondary">View</a>
                       </div>
                       <small class="text-muted">{{$event->created_at}}</small>
                     </div>

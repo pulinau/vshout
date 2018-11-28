@@ -46,6 +46,7 @@
             </div>
             <div class="col-md-8">
                 <h3 style="color:#f06626;text-transform:uppercase;letter-spacing:3px;padding-top:1em;padding-bottom:1em;"> My Events </h3>
+                <a href="/events/create" class="btn btn-success">Create Event</a>
                     <div class="tab-pane" id="profile" role="tabpanel" aria-labelledby="profile-tab">
                         <div class="row">
                             <div class="col-sm-12">
@@ -60,7 +61,12 @@
                                         <p class="card-text">{{$event->description}}</p>
                                         <a href="{{route('events.show',[$event->id])}}" class="btn btn-primary">View Event</a>
                                         <a href="{{route('events.edit',[$event->id])}}" class="btn btn-warning">Edit Event</a>
-                                        <a href="{{route('events.destroy',[$event->id])}}" class="btn btn-danger">Delete Event</a>
+                                        {{-- <a href="{{route('events.destroy',[$event->id])}}" class="btn btn-danger">Delete Event</a> --}}
+                                        <form action="{{ route('events.destroy', $event->id)}}" method="post">
+                                        @csrf
+                                        @method('DELETE')
+                                            <button class="btn btn-danger" type="submit">Delete</button>
+                                        </form>
                                     </div>
                                 </div>
                                 <hr>

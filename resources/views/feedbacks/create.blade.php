@@ -1,4 +1,4 @@
-@extends('layouts.modal')
+@extends('layouts.master')
 @section('content')
 
 <div class="jumbotron jumbotron-sm">
