@@ -26,7 +26,6 @@ Route::get('/homepage', function () {
 
 Route::resource('feedbacks', 'FeedbackController');
 
-
 Route::group(['middleware'=>'App\Http\Middleware\Volunteer'], function()
 {
     Route::get('browse', 'BrowseEventController@index');

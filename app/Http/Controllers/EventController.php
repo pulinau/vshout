@@ -119,7 +119,8 @@ class EventController extends Controller
         $event->save();
 
         return redirect('/events')->with(
-            'success', 'Event \'' . $event->event_name . '\' has been updated'
+            'success',
+            'Event \'' . $event->event_name . '\' has been updated'
         );
     }
 
@@ -135,7 +136,8 @@ class EventController extends Controller
         $event->delete();
 
         return redirect('/events')->with(
-            'success', 'Event \'' . $event->event_name . '\' has been deleted '
+            'success',
+            'Event \'' . $event->event_name . '\' has been deleted '
         );
     }
 }
