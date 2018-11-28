@@ -43,18 +43,18 @@
 {{-- <script src="js/bootstrap.js"></script> --}}
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
-<script src="js/plugins.js"></script>
-<script src="js/revolution.js"></script>
-<script src="js/owl.js"></script>
-<script src="js/easing.js"></script>
-<script src="js/fitvids.js"></script>
-<script src="js/paralelex.js"></script>
-<script src="js/scrollbar.js"></script>
-<script src="js/validate.js"></script>
+<script src="/js/plugins.js"></script>
+<script src="/js/revolution.js"></script>
+<script src="/js/owl.js"></script>
+<script src="/js/easing.js"></script>
+<script src="/js/fitvids.js"></script>
+<script src="/js/paralelex.js"></script>
+<script src="/js/scrollbar.js"></script>
+<script src="/js/validate.js"></script>
 <script src="http://maps.google.com/maps/api/js?sensor=true"></script>
-<script src="js/googlemaps.js"></script>
-<script src="js/wow.js"></script>
-<script src="js/script.js"></script>
+<script src="/js/googlemaps.js"></script>
+<script src="/js/wow.js"></script>
+<script src="/js/script.js"></script>
 <!--Start of Tawk.to Script-->
 <script type="text/javascript">
     var $_Tawk_API={},$_Tawk_LoadStart=new Date();
