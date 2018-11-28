@@ -79,5 +79,7 @@
   ga('send', 'pageview');
 
 </script>
+@stack('scripts')
+
 </body>
 </html>
