@@ -15,6 +15,9 @@ class Volunteer
      */
     public function handle($request, Closure $next)
     {
+        if (!auth()->check()) {
+            return redirect('/login');
+        }
         if (auth()->user()->role != 2) {
             return abort(403);
         }
