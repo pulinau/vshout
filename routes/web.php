@@ -30,3 +30,8 @@ Route::get('/homepage', function () {
 Route::get('/notifications', function () {
     return view('notifications');
 });
+
+Route::get('/send_mail','notificationController@index');
+
+Route::post('/send_mail/send','notificationController@send');
+
